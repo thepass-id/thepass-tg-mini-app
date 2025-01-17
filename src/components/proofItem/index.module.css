@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid gray;
+  background-color: #e5e4e2;
+  border-radius: 20px;
+}
+
+.icon {
+  height: 50px;
+}

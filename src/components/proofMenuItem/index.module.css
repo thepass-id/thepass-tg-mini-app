@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  padding: 12px 0;
+  border: 2px solid gray;
+  background-color: #e5e4e2;
+  border-radius: 20px;
+}
+
+.icon {
+  height: 58px;
+  /* filter: invert(100%) sepia(100%) saturate(25%) hue-rotate(13deg)
+    brightness(105%) contrast(108%); */
+}
