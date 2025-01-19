@@ -18,7 +18,7 @@ export const useLogin = () => {
     setIsCheckingConnectionToArgentWallet,
   ] = useState(true);
 
-  const handleArgentConnect = useCallback(async () => {
+  const handleArgentConnect = useCallback(() => {
     if (!argentTMA) throw new Error('Argent TMA not initialized');
 
     argentTMA

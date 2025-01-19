@@ -1,7 +1,7 @@
 import icon from '@assets/images/logo.png';
 import css from './index.module.css';
 import {FC} from 'react';
-import {Button, Page} from '@components';
+import {Button} from '@components';
 import {useButtonHandlers, useLogin} from './index.hooks';
 import {useLoginPageState} from '@stores';
 

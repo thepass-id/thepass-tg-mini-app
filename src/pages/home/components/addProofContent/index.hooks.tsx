@@ -30,15 +30,17 @@ export const usePassword = () => {
 
       const proverUrl = import.meta.env.VITE_PROVER_URL;
 
-      const prove = await axios.get<string>(
+      const proof = await axios.get<string>(
         proverUrl + `/stark-proof/${value}`,
       );
 
-      await axios.post(submitUrl, {prove});
+      await axios.post(submitUrl, {proof});
 
       setMode(AddProofMode.Congrats);
     } catch (error) {
-      console.log(error);
+      alert('Some error occurred, please try again later');
+      setMode(AddProofMode.ScanQR);
+      console.warn(error);
     }
   };
 
