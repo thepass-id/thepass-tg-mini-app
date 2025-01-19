@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.proofsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scannerFrame {
+  width: 210px;
+  height: 210px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}

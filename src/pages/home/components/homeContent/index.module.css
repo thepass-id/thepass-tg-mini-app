@@ -1,0 +1,9 @@
+.logOutBtn {
+  margin: auto 20px 20px 20px;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
