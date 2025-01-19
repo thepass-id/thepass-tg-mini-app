@@ -3,8 +3,8 @@
   position: relative;
   flex-direction: column;
   height: 100vh;
-  max-height: 600px;
-  max-width: 375px;
+  max-height: 700px;
+  max-width: 415px;
   overflow-x: hidden;
   background-color: #fff;
 }

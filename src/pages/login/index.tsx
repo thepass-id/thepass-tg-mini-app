@@ -12,9 +12,9 @@ const Login: FC = function () {
     if (!isTMA('simple')) {
       navigate(DASHBOARD_PATH);
     }
-  }, []);
+  }, [navigate]);
 
-  return <Page>{isTMA('simple') ? <TelegramLogin /> : <div></div>}</Page>;
+  return <Page>{isTMA('simple') ? <TelegramLogin /> : <div />}</Page>;
 };
 
 export default Login;

@@ -2,7 +2,6 @@ import {useNavigate} from 'react-router-dom';
 import css from './index.module.css';
 import {FC} from 'react';
 
-// TODO make link mandatory
 const ProofMenuItem: FC<{icon: string; link?: string}> = function ({
   icon,
   link,

@@ -1,97 +1,27 @@
-# vite-react-proste
+# the pass telegram mini app
 
-Simple, convenient, out of the box, using vite's react template
+## Prerequisites
 
-## Preview
+Before running the server, make sure you have the following installed:
 
-<img src="https://raw.githubusercontent.com/xyhxx/program_preview/master/vite-react-proste/preview.png" />
+- **node.js** (version 20.17.0 or later): [node Installation Guide](https://nodejs.org/en/download/current)
 
-## Usage
+## Setup and Installation
 
-- Clone this repo, like
-  `git clone https://github.com/xyhxx/vite-react-proste.git`. In addition, you
-  can click "Use this template" to copy this template to your repositories
+### 1. Install Dependencies
 
-- Install all dependencies `pnpm install`
+Install the necessary dependencies:
 
-- Build under development mode `pnpm dev`
-
-- Build under production mode `pnpm build`
-
-- Preview web page `pnpm preview`
-
-- Unit test or integration test `pnpm test`
-
-- Other scripts can be viewed in package.json
-
-## ✨Packages
-
-> typescript is used in the project, and all dependencies that need to install
-> @types/xxx have been added
-
-✅ Zustand
-
-✅ react-route-dom
-
-✅ TypeScript
-
-✅ Axios
-
-✅ Vitest
-
-✅ Testing Library
-
-✅ react-query
-
-✅ react-error-boundary
-
-✅ ESLint
-
-✅ Prettier
-
-✅ Stylelint
-
-✅ PostCSS
-
-✅ Cypress
-
-## 🎊Preset
-
-> Alias folders are exported using index
-
-✅ folder(pages, routes, apis, assets, hooks, components, stores, styles, utils)
-
-✅ alias(@pages, @routes, @apis...)
-
-✅ eslint config(use eslint-config-proste)
-
-✅ stylelint config
-
-✅ editor config
-
-## LICENSE
-
+```sh
+yarn
 ```
-MIT License
 
-Copyright (c) 2022 xyhxx
+### 2. Fill env variables from .env.example
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### 3. Run the Server
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+To start the web server, run the following command:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
+```sh
+yarn dev
 ```
