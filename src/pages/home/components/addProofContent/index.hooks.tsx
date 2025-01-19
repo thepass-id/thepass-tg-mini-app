@@ -20,9 +20,9 @@ export const useScan = () => {
 
   useEffect(() => {
     return () => {
-      setMode(AddProofMode.ScanQR);
+      dispatch(setMode(AddProofMode.ScanQR));
     };
-  }, [setMode]);
+  }, [dispatch]);
 
   return {mode, onScan};
 };
@@ -30,9 +30,11 @@ export const useScan = () => {
 export const usePassword = () => {
   const {submitUrl} = useSelector((state: RootState) => state.addProof);
 
+  const dispatch = useDispatch();
+
   const onComplete = async (value: string) => {
     try {
-      setMode(AddProofMode.CheckingPassword);
+      dispatch(setMode(AddProofMode.CheckingPassword));
 
       const proverUrl = import.meta.env.VITE_PROVER_URL;
 
@@ -42,10 +44,10 @@ export const usePassword = () => {
 
       await axios.post(submitUrl, {proof});
 
-      setMode(AddProofMode.Congrats);
+      dispatch(setMode(AddProofMode.Congrats));
     } catch (error) {
       alert('Some error occurred, please try again later');
-      setMode(AddProofMode.ScanQR);
+      dispatch(setMode(AddProofMode.ScanQR));
       console.warn(error);
     }
   };
