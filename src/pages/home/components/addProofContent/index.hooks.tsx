@@ -9,7 +9,6 @@ export const useScan = () => {
 
   const onScan = (result: IDetectedBarcode[]) => {
     const submitProofUrl = result[0]?.rawValue;
-    console.log('🚀 ~ onScan ~ submitProofUrl:', submitProofUrl);
     if (!submitProofUrl) throw new Error('No submit proof url');
     setMode(AddProofMode.EnterPassword);
     setSubmitUrl(submitProofUrl);
@@ -24,18 +23,20 @@ export const useScan = () => {
 
 export const usePassword = () => {
   const {submitUrl, setMode} = useAddProofState();
-  console.log('🚀 ~ usePassword ~ submitUrl:', submitUrl);
 
-  const onComplete = async () => {
+  const onComplete = async (value: string) => {
     try {
       setMode(AddProofMode.CheckingPassword);
 
-      await new Promise(resolve => setTimeout(resolve, 3000));
-      setMode(AddProofMode.Congrats);
+      const proverUrl = import.meta.env.VITE_PROVER_URL;
 
-      console.log('🚀 ~ onComplete ~ submitUrl:', submitUrl);
-      await new Promise(resolve => setTimeout(resolve, 3500));
-      await axios.post(submitUrl);
+      const prove = await axios.get<string>(
+        proverUrl + `/stark-proof/${value}`,
+      );
+
+      await axios.post(submitUrl, {prove});
+
+      setMode(AddProofMode.Congrats);
     } catch (error) {
       console.log(error);
     }

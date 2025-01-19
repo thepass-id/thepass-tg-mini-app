@@ -1,7 +1,7 @@
 import {FC} from 'react';
 import css from './index.module.css';
 import {Button} from '@components';
-import {argentTMA} from '@pages/login/index.api';
+import {getArgentTMA} from '@pages/login/telegramLogin/index.api';
 import {useNavigate} from 'react-router-dom';
 import {HOME_PATH} from '@routes';
 
@@ -10,7 +10,11 @@ const HomeContent: FC = function () {
 
   const handleClearArgentSession = async () => {
     navigate(HOME_PATH);
-    await argentTMA.clearSession();
+
+    const argentTMA = getArgentTMA();
+    if (argentTMA) {
+      await argentTMA.clearSession();
+    }
   };
 
   return (

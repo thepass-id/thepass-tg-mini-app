@@ -13,7 +13,8 @@
 }
 
 .scannerFrame {
-  width: 50%;
+  width: 210px;
+  height: 210px;
   position: absolute;
   left: 50%;
   top: 50%;
