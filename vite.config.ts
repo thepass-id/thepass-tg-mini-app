@@ -77,7 +77,6 @@ export default defineConfig(function () {
         '@assets': resolve(__dirname, 'src/assets'),
         '@routes': resolve(__dirname, 'src/routes'),
         '@components': resolve(__dirname, 'src/components'),
-        '@hooks': resolve(__dirname, 'src/hooks'),
         '@pages': resolve(__dirname, 'src/pages'),
         '@stores': resolve(__dirname, 'src/stores'),
         '@utils': resolve(__dirname, 'src/utils'),

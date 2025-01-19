@@ -8,6 +8,8 @@ import {StrictMode} from 'react';
 import {QUERY_CLIENT} from '@utils';
 import {initTg} from './initTg';
 import {isTMA, retrieveLaunchParams} from '@telegram-apps/sdk-react';
+import {store} from '@stores';
+import {Provider} from 'react-redux';
 
 const root = createRoot(document.getElementById('root')!);
 
@@ -16,8 +18,10 @@ isTMA('simple') &&
 
 root.render(
   <StrictMode>
-    <QueryClientProvider client={QUERY_CLIENT}>
-      <RouterProvider router={routes} />
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={QUERY_CLIENT}>
+        <RouterProvider router={routes} />
+      </QueryClientProvider>
+    </Provider>
   </StrictMode>,
 );

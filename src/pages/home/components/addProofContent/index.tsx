@@ -2,7 +2,6 @@ import {FC} from 'react';
 import css from './index.module.css';
 import {Scanner} from '@yudiel/react-qr-scanner';
 import {usePassword, useScan} from './index.hooks';
-import {useAddProofState} from '@stores';
 import {AddProofMode} from './index.api';
 import VerificationInput from 'react-verification-input';
 
@@ -10,9 +9,7 @@ import scannerIcon from '@assets/icons/scanner.svg';
 import Successimg from '@assets/images/success.png';
 
 const AddProofContent: FC = function () {
-  const {mode} = useAddProofState();
-
-  const {onScan} = useScan();
+  const {mode, onScan} = useScan();
 
   const {onComplete} = usePassword();
 

@@ -3,10 +3,11 @@ import css from './index.module.css';
 import {FC} from 'react';
 import {Button} from '@components';
 import {useButtonHandlers, useLogin} from './index.hooks';
-import {useLoginPageState} from '@stores';
+import {useSelector} from 'react-redux';
+import {RootState} from '@stores';
 
 const TelegramLogin: FC = function () {
-  const {isSubmitting} = useLoginPageState();
+  const {isSubmitting} = useSelector((state: RootState) => state.loginPage);
 
   const {isCheckingConnectionToArgentWallet} = useLogin();
 

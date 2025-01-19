@@ -3,7 +3,8 @@ import {DASHBOARD_PATH} from '@routes';
 import {useCallback, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {getArgentTMA} from './index.api';
-import {useLoginPageState} from '@stores';
+import {useDispatch} from 'react-redux';
+import {toggleSubmit} from '@stores/slices/loginPage';
 
 const argentTMA = getArgentTMA();
 
@@ -87,12 +88,12 @@ export const useLogin = () => {
 export const useButtonHandlers = () => {
   const navigate = useNavigate();
 
-  const {toggleSubmit} = useLoginPageState();
+  const dispatch = useDispatch();
 
   const handleConnectButton = async () => {
     if (!argentTMA) throw new Error('Argent TMA not initialized');
 
-    toggleSubmit(true);
+    dispatch(toggleSubmit(true));
 
     try {
       await argentTMA.requestConnection({
@@ -103,7 +104,7 @@ export const useButtonHandlers = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      toggleSubmit(false);
+      dispatch(toggleSubmit(false));
     }
   };
 

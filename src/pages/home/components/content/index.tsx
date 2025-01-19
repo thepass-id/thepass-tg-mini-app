@@ -1,11 +1,12 @@
 import {FC, ReactElement} from 'react';
 import HomeContent from '../homeContent';
-import {useBottomTabsState} from '@stores';
 import GovernmentDocsContent from '../governmentDocsContent';
 import AddProofContent from '../addProofContent';
 import EventsContent from '../eventsContent';
 import MilestoneContent from '../milestoneContent';
 import {BottomTabs} from '../../../../enums/bottomTabs';
+import {useSelector} from 'react-redux';
+import {RootState} from '@stores';
 
 const tabs: Record<BottomTabs, ReactElement> = {
   [BottomTabs.Home]: <HomeContent />,
@@ -16,7 +17,7 @@ const tabs: Record<BottomTabs, ReactElement> = {
 };
 
 const Content: FC = function () {
-  const {activeTab} = useBottomTabsState();
+  const {activeTab} = useSelector((state: RootState) => state.bottomTabs);
 
   return tabs[activeTab];
 };
