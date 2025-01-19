@@ -2,8 +2,10 @@ import {SessionAccountInterface} from '@argent/tma-wallet';
 import {DASHBOARD_PATH} from '@routes';
 import {useCallback, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {argentTMA} from './index.api';
+import {getArgentTMA} from './index.api';
 import {useLoginPageState} from '@stores';
+
+const argentTMA = getArgentTMA();
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -16,45 +18,45 @@ export const useLogin = () => {
     setIsCheckingConnectionToArgentWallet,
   ] = useState(true);
 
-  const handleArgentConnect = useCallback(
-    async () =>
-      argentTMA
-        .connect()
-        .then(res => {
-          if (!res) {
-            // Not connected
-            setIsConnected(false);
-            return;
-          }
+  const handleArgentConnect = useCallback(async () => {
+    if (!argentTMA) throw new Error('Argent TMA not initialized');
 
-          // Connected
-          const {account, callbackData} = res;
+    argentTMA
+      .connect()
+      .then(res => {
+        if (!res) {
+          // Not connected
+          setIsConnected(false);
+          return;
+        }
 
-          if (account.getSessionStatus() !== 'VALID') {
-            // Session has expired or scope (allowed methods) has changed
-            // A new connection request should be triggered
+        // Connected
+        const {account, callbackData} = res;
 
-            // The account object is still available to get access to user's address
-            // but transactions can't be executed
-            const {account} = res;
+        if (account.getSessionStatus() !== 'VALID') {
+          // Session has expired or scope (allowed methods) has changed
+          // A new connection request should be triggered
 
-            setAccount(account);
-            setIsConnected(false);
-            return;
-          }
+          // The account object is still available to get access to user's address
+          // but transactions can't be executed
+          const {account} = res;
 
-          // Connected
-          // The session account is returned and can be used to submit transactions
           setAccount(account);
-          setIsConnected(true);
-          // Custom data passed to the requestConnection() method is available here
-          console.log('callback data:', callbackData);
-        })
-        .catch(err => {
-          console.error('Failed to connect', err);
-        }),
-    [],
-  );
+          setIsConnected(false);
+          return;
+        }
+
+        // Connected
+        // The session account is returned and can be used to submit transactions
+        setAccount(account);
+        setIsConnected(true);
+        // Custom data passed to the requestConnection() method is available here
+        console.log('callback data:', callbackData);
+      })
+      .catch(err => {
+        console.error('Failed to connect', err);
+      });
+  }, []);
 
   // Check if the user is already connected
   useEffect(() => {
@@ -88,6 +90,8 @@ export const useButtonHandlers = () => {
   const {toggleSubmit} = useLoginPageState();
 
   const handleConnectButton = async () => {
+    if (!argentTMA) throw new Error('Argent TMA not initialized');
+
     toggleSubmit(true);
 
     try {

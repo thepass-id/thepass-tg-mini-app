@@ -2,7 +2,6 @@
   "name": "vite-react-proste",
   "private": true,
   "version": "0.0.1",
-  "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "dev:e2e": "cross-env IS_E2E=true vite --port 5000",
@@ -89,6 +88,7 @@
   "dependencies": {
     "@argent/tma-wallet": "1.22.0",
     "@tanstack/react-query": "^5.7.2",
+    "@telegram-apps/sdk-react": "^2.0.25",
     "@yudiel/react-qr-scanner": "^2.1.0",
     "axios": "^1.6.0",
     "classnames": "^2.3.2",
@@ -151,7 +151,6 @@
     "swc-plugin-react-remove-properties": "^0.1.4",
     "typescript": "^5.2.2",
     "vite": "^4.5.0",
-    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^0.34.6"
   }
 }

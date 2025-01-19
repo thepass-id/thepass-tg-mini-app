@@ -8,7 +8,6 @@ import postcssNest from 'postcss-nesting';
 import postcssPresetEnv from 'postcss-preset-env';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import UnpluginInjectPreload from 'unplugin-inject-preload/vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(function () {
   return {
@@ -47,7 +46,6 @@ export default defineConfig(function () {
           },
         ],
       }),
-      tsconfigPaths(),
       eslint(),
       visualizer({filename: './visualizer/index.html'}) as PluginOption,
     ],

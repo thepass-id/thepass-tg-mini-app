@@ -35,4 +35,6 @@ cypress/screenshots
 .eslintchache
 stats.html
 
-.env*
+.env.development
+.env.production
+.env.test
