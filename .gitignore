@@ -35,4 +35,4 @@ cypress/screenshots
 .eslintchache
 stats.html
 
-.env*
+.env
